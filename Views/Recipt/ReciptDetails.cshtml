@@ -1,0 +1,43 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<ReciptDetail>
+
+
+@{
+    ViewBag.Title = "ReciptDetails";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Fatura Kalemleri</h2>
+<br />
+
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"></li>
+</ol>
+
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Açıklama</th>
+        <th>Miktar</th>
+        <th>Birim Fiyat </th>
+        <th>Tutar </th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ReciptDetailID</td>
+            <td>@x.ReciptDetailDescription</td>
+            <td>@x.ReciptDetailQuantity</td>
+            <td>@x.ReciptDetailUnitPrice ₺</td>
+            <td>@x.ReciptDetailAmount ₺</td>
+
+        </tr>
+    }
+
+
+
+</table>
+
+<a href="/Recipt/NewDetail/" class="btn btn-default" style="background-color:darksalmon">Yeni Kalem Girişi</a>

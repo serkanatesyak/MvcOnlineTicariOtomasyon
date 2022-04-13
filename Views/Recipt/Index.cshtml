@@ -1,0 +1,94 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Recipt>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Faturalar</h2>
+<br />
+<table class="table table-bordered" style="margin-top:20px">
+
+    <tr>
+
+
+        <th>Seri Sıra No</th>
+
+        <th>Vergi Dairesi</th>
+        <th>Tarih</th>
+        <th>Saat</th>
+
+        <th>Toplam</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+
+        <th>Yeni Kalem</th>
+    </tr>
+
+    @foreach (var recipt in Model)
+    {
+
+        <tr>
+
+
+            <td>@recipt.ReciptSerialNumber @recipt.ReciptRankNumber</td>
+
+            <td>@recipt.TaxAdministration</td>
+            <td>@recipt.ReciptDate</td>
+            <td>@recipt.ReciptTime</td>
+
+            <td>@recipt.Total ₺</td>
+
+
+            <td><a href="/Recipt/GetRecipt/@recipt.ReciptID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Recipt/ReciptDetails/@recipt.ReciptID" class="btn btn-default" style="background-color:lightcoral;color:white">Detaylar</a></td>
+
+            <td><a href="/Recipt/ReciptDetails/@recipt.ReciptID" class="btn btn-default" style="background-color:dodgerblue;color:white">Kalem Ekle</a></td>
+
+
+        </tr>
+    }
+
+</table>
+
+<a href="/Recipt/AddRecipt/" class="btn btn-info">Fatura Ekle</a>
+<br />
+<br />
+<button type="button" class="btn btn-warning" style="background-color:#d95151;color:white" data-toggle="modal" data-target="#Modal1">PopUp Penceresi</button>
+
+<div class="modal" id="Modal1">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">PopUp Diyalog Ekranı</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Seri No</td>
+                        <td>Sıra No</td>
+                        <td>Tutar</td>
+                    </tr>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.ReciptSerialNumber</td>
+                            <td>@x.ReciptRankNumber</td>
+                            <td>@x.Total</td>
+                        </tr>
+
+                    }
+                </table>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+

@@ -1,0 +1,40 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+
+<br />
+
+<table class="table table-striped">
+    <tr>
+        <th>Cari ID</th>
+        <th>Ad</th>
+        <th>SoyAd</th>
+        <th>Şehir</th>
+        <th>Mail</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CustomerID</td>
+            <td>@item.CustomerName</td>
+            <td>@item.CustomerSurName</td>
+            <td>@item.CustomerCity</td>
+            <td>@item.CustomerMail</td>
+            <td><a href="/Customer/CustomerDelete/@item.CustomerID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Customer/GetCustomer/@item.CustomerID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Customer/SalesHistory/@item.CustomerID" class="btn btn-default" style="background-color:lightcoral">Satış Geçmişi</a></td>
+        </tr>
+    }
+
+</table>
+<br />
+<a href="/Customer/CustomerAdd/" class="btn btn-info">Yeni Cari Ekle</a>
+

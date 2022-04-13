@@ -1,0 +1,35 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.Customer
+@{
+    ViewBag.Title = "CustomerAdd";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Yeni Cari Ekleme</h2>
+
+<br />
+
+<form class="form-group" method="post">
+
+    <h6>Cari Adı</h6>
+    @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+
+    <br />
+
+    <h6>Cari SoyAdı</h6>
+    @Html.TextBoxFor(x => x.CustomerSurName, new { @class = "form-control" })
+
+    <br />
+
+    <h6>Şehir</h6>
+    @Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })
+
+    <br />
+    <h6>Mail</h6>
+    @Html.TextBoxFor(x => x.CustomerMail, new { @class = "form-control" })
+
+    <br />
+
+    <button class="btn btn-success">Kaydet</button>
+
+</form>
+

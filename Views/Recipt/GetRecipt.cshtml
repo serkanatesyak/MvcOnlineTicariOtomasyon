@@ -1,0 +1,48 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.Recipt
+@{
+    ViewBag.Title = "GetRecipt";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Fatura Güncelleme </h2>
+
+@using (Html.BeginForm("UpdateRecipt", "Recipt", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ReciptID)
+
+    <h6>Fatura Seri No</h6>
+    @Html.TextBoxFor(x => x.ReciptSerialNumber, new { @class = "form-control" })
+    <br />
+
+    <h6> Fatura Sıra No </h6>
+    @Html.TextBoxFor(x => x.ReciptRankNumber, new { @class = "form-control" })
+    <br />
+
+    <h6> Vergi Dairesi </h6>
+    @Html.TextBoxFor(x => x.TaxAdministration, new { @class = "form-control" })
+    <br />
+
+    <h6> Tarih </h6>
+    @Html.TextBoxFor(x => x.ReciptDate, new { @class = "form-control" })
+    <br />
+
+
+    <h6> Saat </h6>
+    @Html.TextBoxFor(x => x.ReciptTime, new { @class = "form-control" })
+    <br />
+
+
+
+    <br />
+
+    <h6>Teslim Eden</h6>
+    @Html.TextBoxFor(x => x.Submitter, new { @class = "form-control" })
+    <br />
+
+    <h6>Teslim Alan</h6>
+    @Html.TextBoxFor(x => x.Receiver, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-warning">Güncelle</button>
+
+}

@@ -1,0 +1,64 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.SalesMove
+
+@{
+    ViewBag.Title = "DoSale";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<br />
+<h2>Satış Ekranı</h2>
+<br />
+
+<form class="form-group" method="post">
+
+    <h6>Ürün ID</h6>
+    <input type="text" name="ProductID" value="@ViewBag.varabible2" class="form-control" readonly />
+    <br />
+
+    <h6>Personel Adı</h6>
+    @Html.DropDownListFor(x => x.EmployeeID, (List<SelectListItem>)ViewBag.varabible1, new { @class = "form-control" })
+
+    <br />
+
+    <h6>Cari ID</h6>
+    @Html.TextBoxFor(x => x.CustomerID, new { @class = "form-control" })
+    <br />
+
+    <h6>Adet</h6>
+    <input type="text" name="Quantity" class="form-control" placeholder="Adet Giriniz" id="txt1" onkeyup="sum();" />
+
+    <br />
+
+    <h6> Fiyat</h6>
+    <input type="text" name="Price" value="@ViewBag.varabible3" class="form-control" id="txt2" onkeyup="sum();" />
+    <br />
+
+    <h6>Toplam Tutar</h6>
+    <input type="text" name="TotalPrice" value="@ViewBag.varabible3" class="form-control" id="txt3" readonly />
+    <br />
+
+    <button class="btn btn-primary">Satış Yap</button>
+
+</form>
+<br />
+
+
+<script>
+    //$(document).ready(function () {
+    //    $("#txt1").on('input', sum)
+
+
+
+    //});
+    function sum() {
+        console.log('asdsadsa');
+        var number1 = document.getElementById('txt1').value;
+        var number2 = document.getElementById('txt2').value;
+        var result = parseInt(number1) * parseInt(number2);
+        if (!isNaN(result)) {
+            document.getElementById('txt3').value = result;
+        }
+    }
+
+</script>
+

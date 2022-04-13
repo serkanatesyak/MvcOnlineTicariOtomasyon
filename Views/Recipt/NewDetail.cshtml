@@ -1,0 +1,37 @@
+﻿
+@model MvcOnlineTicariOtomasyon.Models.Sınıflar.ReciptDetail
+
+@{
+    ViewBag.Title = "NewDetail";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Yeni Kalem</h2>
+
+<br />
+
+<form class="form-group" method="post">
+
+    <h6>Açıklama </h6>
+    @Html.TextBoxFor(x => x.ReciptDetailDescription, new { @class = "form-control" })
+    <br />
+
+    <h6>Miktar</h6>
+    @Html.TextBoxFor(x => x.ReciptDetailQuantity, new { @class = "form-control" })
+    <br />
+
+    <h6>Birim Fiyat</h6>
+    @Html.TextBoxFor(x => x.ReciptDetailUnitPrice, new { @class = "form-control" })
+    <br />
+
+    <h6>Tutar</h6>
+    @Html.TextBoxFor(x => x.ReciptDetailAmount, new { @class = "form-control" })
+    <br />
+
+    <h6>Fatura ID</h6>
+    @Html.TextBoxFor(x => x.ReciptID, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-primary">Kaydet</button>
+
+</form>

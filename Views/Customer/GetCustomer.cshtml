@@ -1,0 +1,41 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.Customer
+
+@{
+    ViewBag.Title = "GetCustomer";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Cariler Güncelleme</h2>
+<br />
+
+@using (Html.BeginForm("CustomerUpdate", "Customer", FormMethod.Post))
+{
+
+    <div class="form-group">
+        @Html.HiddenFor(x => x.CustomerID)
+        <h6>Cari Adı</h6>
+        @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CustomerName, "", new { @style = "color:red" })
+        <br />
+
+
+        <h6>Cari SoyAdı</h6>
+        @Html.TextBoxFor(x => x.CustomerSurName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CustomerSurName, "", new { @style = "color:red" })
+        <br />
+        <h6>Şehir</h6>
+        @Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })
+        <br />
+        <h6>Mail</h6>
+        @Html.TextBoxFor(x => x.CustomerMail, new { @class = "form-control" })
+        <br />
+
+        <button class="btn btn-default" style="background-color:yellowgreen">Güncelle</button>
+    </div>
+
+
+}
+
+
+
+

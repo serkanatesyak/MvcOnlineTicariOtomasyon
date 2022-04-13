@@ -1,0 +1,30 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.Category
+
+
+@{
+    ViewBag.Title = "CategoryAdd";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<h2>Kategori Ekleme</h2>
+<br />
+
+<form class="form-group" method="post">
+
+    <h6>Kategori Adı</h6>
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+
+    <br />
+    <button class="btn btn-success" id="CtgAdd">Kaydet</button>
+    <script>
+        $('#CtgAdd').click(function () {
+            swal("Kategori Başarıyla Eklendi");
+        });
+    </script>
+
+</form>
+
+
